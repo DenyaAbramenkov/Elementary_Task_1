@@ -31,6 +31,14 @@ gitignore/VisualStudio.gitignore
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
 
 # Build results
 [Dd]ebug/
