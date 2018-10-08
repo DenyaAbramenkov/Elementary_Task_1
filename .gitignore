@@ -31,6 +31,7 @@ gitignore/VisualStudio.gitignore
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -63,10 +64,17 @@ TestResult.xml
 [Dd]ebugPS/
 [Rr]eleasePS/
 dlldata.c
+<<<<<<< HEAD
 
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
 
+=======
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+>>>>>>> 9f18e79921d6bc98bb7f9b276079e8016c616611
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -363,3 +371,5 @@ Training
 Blog
 About
 Press h to open a hovercard with more details.
+=======
+>>>>>>> 9f18e79921d6bc98bb7f9b276079e8016c616611
