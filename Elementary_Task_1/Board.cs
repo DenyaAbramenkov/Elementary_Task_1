@@ -20,7 +20,7 @@
         /// Width of board
         /// </summary>
         private int boardWidth;
-        
+        //fs
         /// <summary>
         /// Intializes a new instace of the Board class.
         /// </summary>
