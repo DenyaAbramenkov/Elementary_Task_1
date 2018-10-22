@@ -12,32 +12,15 @@
     public class Board
     {
         /// <summary>
-        /// Height of board
-        /// </summary>
-        private int boardHeight;
-
-        /// <summary>
-        /// Width of board
-        /// </summary>
-        private int boardWidth;
-        //fs
-        /// <summary>
         /// Intializes a new instace of the Board class.
         /// </summary>
         /// <param name="height">height of</param>
         /// <param name="width">width of</param>
-        public Board(int height, int width)
+        private Board(int height, int width)
         {
             this.Board_Height = height;
             this.Board_Width = width;
-            this.Cells = new Cell[height, width];
-            for (int i = 0; i < this.Board_Height; i++)
-            {
-                for (int j = 0; j < this.Board_Width; j++)
-                {
-                    this.Cells[i, j] = new Cell(i, j);
-                }
-            }
+            this.GetSetOfCells();
         }
         
         /// <summary>
@@ -45,22 +28,7 @@
         /// </summary>
         public int Board_Height
         {
-            get
-            {
-                return this.boardHeight;
-            }
-  
-            set
-            {
-                if (value % 2 == 0)
-                {
-                    this.boardHeight = value;
-                }
-                else
-                {
-                    Console.WriteLine("Board dimensions must be multiples of 2");
-                }
-            }
+            get; set;
         }
 
         /// <summary>
@@ -68,52 +36,50 @@
         /// </summary> 
         public int Board_Width
         {
-            get
-            {
-                return this.boardWidth;
-            }
-            
-            set
-            {
-                if (value % 2 == 0)
-                {
-                    this.boardWidth = value;
-                }
-                else
-                {
-                    Console.WriteLine("Board dimensions must be multiples of 2");
-                }
-            }
+            get; set;
         }
 
         /// <summary>
         /// Property Cells
         /// </summary>
-        private Cell[,] Cells { get; set; }
+        public Cell[,] Cells { get; set; }
 
-        /// <summary>
-        /// Method to drow the board
-        /// </summary>
-        public void DrawBoard()
+        public static Board Initialize(int height, int width)
         {
-            for (int i = 0; i < this.Board_Height; i++)
+
+            if (width > 0 && height > 0)
             {
-                for (int j = 0; j < this.Board_Width; j++)
+                if ((width % 2 == 0) && (height % 2 == 0))
                 {
-                    if (this.Cells[i, j].Color == (int)Cell.Colors.White)
+                    return new Board(width, height);
+                }
+                else
+                {
+                    throw new ArgumentException("Incorrect width or height. Values should be divided by 2");
+                }
+            }
+            else throw new ArgumentException("Incorrect width or height. Please use values more than 0");
+        }
+
+        private void GetSetOfCells()
+        {
+            this.Cells = new Cell[Board_Height, Board_Width];
+            for (int height = 0; height < Board_Height; height++)
+            {
+                for(int width = 0; width < Board_Width; width++)
+                {
+                    if ((height % 2) == (width % 2))
                     {
-                        Console.Write("*");
+                        Cells[height, width] = new Cell(Colors.White);
                     }
                     else
                     {
-                        Console.Write(" ");
+                        Cells[height, width] = new Cell(Colors.Black);
                     }
                 }
-
-                Console.WriteLine();
             }
-
-            Console.ReadKey();        
+            
         }
+
     }
 }
