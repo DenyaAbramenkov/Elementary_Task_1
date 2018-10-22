@@ -9,7 +9,7 @@
     /// <summary>
     /// Main class
     /// </summary>
-    public class Elementary_Task_1
+    public class Task_Board
     {
         /// <summary>
         /// Main method
@@ -17,7 +17,7 @@
         /// <param name="args">Args command line</param>
         public static void Main(string[] args)
         {
-            UI.BuildUI();
+            UI_Console.BuildUI();
         }
     }
 }
